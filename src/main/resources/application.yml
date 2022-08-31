@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/test_db?characterEncoding=UTF-8
+    username: root
+    password: "0000"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+    defer:
+      datasource:
+        initialization: true
+
+  sql:
+    init:
+      mode: always
+
+
+jwt:
+  header: Authorization
+  secret-key: ay1kaWdpdGFsLXRyYWluaW5nLXNlY29uZC1iYXRjaC1mcm9udC1iYWNrLWNvb3BlcmF0aW9uLW1pbmktcHJvamVjdC1mYXN0LWJhbmstc2VydmljZS1kZXZlbG9wbWVudC13aXNoLWEtZ29vZC1sdWNrCg==
+  token-validity-in-seconds: 3600
