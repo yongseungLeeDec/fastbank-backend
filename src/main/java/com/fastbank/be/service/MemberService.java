@@ -32,7 +32,7 @@ public class MemberService {
                 .email(memberDto.getEmail())
                 .name(memberDto.getName())
                 .job(memberDto.getJob())
-                .age(memberDto.getAgeGroup()).build();
+                .age(memberDto.getAge()).build();
 
         newMember = memberRepository.save(newMember);
 
