@@ -7,6 +7,7 @@ import com.fastbank.be.dto.cart.MemberCartDto;
 import com.fastbank.be.jwt.TokenProvider;
 import com.fastbank.be.persistence.CartItemRepository;
 import com.fastbank.be.persistence.ProductRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,6 +24,7 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @RestController
+@Slf4j
 public class CartController {
 
     private final TokenProvider tokenProvider;
@@ -53,6 +55,8 @@ public class CartController {
             Optional<Product> result = productRepository.findById(productId);
             Product product = result.orElseThrow(NoSuchElementException::new);
             newlyAddedItems.add(new CartItem(memberEmail, product.getId(), product.getName(), product.getType()));
+            log.info("memberEmail, product.getId(), product.getName(), product.getType() -> {}, {}, {}, {}", memberEmail, product.getId(), product.getName(), product.getType());
+
         }
 
         cartItemRepository.saveAll(newlyAddedItems);

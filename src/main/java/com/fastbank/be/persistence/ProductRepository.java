@@ -1,9 +1,6 @@
 package com.fastbank.be.persistence;
 
-import com.fastbank.be.domain.auth.Member;
 import com.fastbank.be.domain.Product;
-import com.fastbank.be.domain.search.Catalog;
-import com.fastbank.be.dto.ProductDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

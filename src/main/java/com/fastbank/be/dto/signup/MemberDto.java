@@ -21,7 +21,7 @@ public class MemberDto {
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @NotNull
-    @Size(min = 8, max = 30)
+    @Size(min = 1, max = 30)
     private String password;
 
     @NotNull

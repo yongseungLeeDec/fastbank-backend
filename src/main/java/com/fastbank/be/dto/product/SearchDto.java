@@ -1,4 +1,4 @@
-package com.fastbank.be.dto;
+package com.fastbank.be.dto.product;
 
 import com.fastbank.be.domain.Search;
 import com.fastbank.be.domain.search.Catalog;
@@ -20,7 +20,7 @@ public class SearchDto {
         this.keyword = keyword;
     }
 
-    // dto -> entity (request)
+    // request
     public Search toEntity() {
         return Search.builder()
                 .word(word)

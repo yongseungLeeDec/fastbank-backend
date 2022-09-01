@@ -1,4 +1,4 @@
-package com.fastbank.be.dto;
+package com.fastbank.be.dto.product;
 
 import com.fastbank.be.domain.Product;
 import lombok.Data;
