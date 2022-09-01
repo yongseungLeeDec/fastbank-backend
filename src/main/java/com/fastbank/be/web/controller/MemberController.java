@@ -8,6 +8,7 @@ import com.fastbank.be.dto.signup.IdCheckerDto;
 import com.fastbank.be.dto.signup.MemberDto;
 import com.fastbank.be.dto.ResultSuccessDto;
 import com.fastbank.be.dto.ResultFailureDto;
+import com.fastbank.be.dto.signup.SignUpSuccessDto;
 import com.fastbank.be.jwt.TokenProvider;
 import com.fastbank.be.persistence.MemberRepository;
 import com.fastbank.be.service.MemberService;
@@ -58,7 +59,7 @@ public class MemberController {
             return new ResponseEntity<>(new ResultFailureDto("401", invalidSignUpFailureMessage), HttpStatus.BAD_REQUEST);
         }
 
-        return new ResponseEntity<>(new ResultSuccessDto("200", registeredMemberInfo.getEmail()), HttpStatus.OK);
+        return new ResponseEntity<>(new SignUpSuccessDto("200", registeredMemberInfo.getEmail()), HttpStatus.OK);
     }
 
     @GetMapping("/auth")
