@@ -41,5 +41,9 @@ public class CartItem {
     }
 
     public CartItem(String memberEmail, Long id, String name, String type) {
+        this.email = memberEmail;
+        this.id = id;
+        this.name = name;
+        this.type = type;
     }
 }
