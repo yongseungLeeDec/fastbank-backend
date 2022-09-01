@@ -52,7 +52,7 @@ public class MemberController {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<ResultDto> signUp(@Valid @RequestBody MemberDto memberDto) {
+    public ResponseEntity<Object> signUp(@Valid @RequestBody MemberDto memberDto) {
         MemberDto registeredMemberInfo = memberService.signup(memberDto);
 
         if (registeredMemberInfo == null) {
