@@ -50,6 +50,9 @@ public class CartController {
         List<CartItem> newlyAddedItems = new ArrayList<>();
 
         for (Long productId : productIds) {
+            if (cartItemRepository.findByIdAndEmail(productId, memberEmail).isPresent()) {
+                continue;
+            }
             Optional<Product> result = productRepository.findById(productId);
             Product product = result.orElseThrow(NoSuchElementException::new);
             newlyAddedItems.add(new CartItem(memberEmail, product.getId(), product.getName(), product.getType()));
