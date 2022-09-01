@@ -38,15 +38,15 @@ public class MemberController {
         this.tokenProvider = tokenProvider;
     }
 
-    @PostMapping("/check-id")
+    @PostMapping("/signup/check")
     public ResponseEntity<IdCheckerDto> checkIdAvailability(@Valid @RequestBody EmailDto emailDto) {
         String email = emailDto.getEmail();
         Optional<Member> result = memberRepository.findOneByEmail(email);
 
         if (result.isPresent()) {
-            return new ResponseEntity<>(new IdCheckerDto(false), HttpStatus.OK);
+            return new ResponseEntity<>(new IdCheckerDto("false"), HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(new IdCheckerDto(true), HttpStatus.OK);
+            return new ResponseEntity<>(new IdCheckerDto("true"), HttpStatus.OK);
         }
     }
 
