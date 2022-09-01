@@ -20,10 +20,9 @@ public class AppConfiguration implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(jwtInterceptor)
                 .excludePathPatterns(
-                        "/",
                         "/login",
                         "/signup",
-                        "/check-id"
+                        "/signup/check"
                 );
     }
 }
