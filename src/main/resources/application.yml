@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/test_db?characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/sys?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
     username: root
-    password: "0000"
+    password: yeppi0101
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
