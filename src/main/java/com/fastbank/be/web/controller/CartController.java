@@ -58,8 +58,6 @@ public class CartController {
             Optional<Product> result = productRepository.findById(productId);
             Product product = result.orElseThrow(NoSuchElementException::new);
             newlyAddedItems.add(new CartItem(memberEmail, product.getId(), product.getName(), product.getType()));
-            log.info("memberEmail, product.getId(), product.getName(), product.getType() -> {}, {}, {}, {}", memberEmail, product.getId(), product.getName(), product.getType());
-
         }
 
         cartItemRepository.saveAll(newlyAddedItems);
@@ -67,7 +65,7 @@ public class CartController {
         return new ResponseEntity<>(new MemberCartDto("200", cartItemRepository.findAllByEmail(memberEmail)), HttpStatus.OK);
     }
 
-    @DeleteMapping("/cart")
+    @PostMapping("/cart/delete")
     public ResponseEntity<MemberCartDto> removeItemFromCart(HttpServletRequest request, @RequestBody CartDto cartDto) {
         Long[] productIds = cartDto.getCart();
         String memberEmail = tokenProvider.getSubject(request);
