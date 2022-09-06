@@ -66,7 +66,7 @@ public class WishListController {
     /**
      * 상품 찜 해제
      * */
-    @DeleteMapping("/wishList")
+    @PostMapping("/wishList/delete")
     public ResponseEntity<MemberWishListDto> removeWishList(HttpServletRequest httpServletRequest, @RequestBody WishListDto wishListDto) {
         Long[] productIds = wishListDto.getWishList();
         String memberEmail = tokenProvider.getSubject(httpServletRequest);
