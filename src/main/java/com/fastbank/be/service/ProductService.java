@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -42,8 +43,10 @@ public class ProductService {
      * */
     public List<Product> searchProduct(Search search) {
 
-        List<Product> dropDown = productRepository.findByTypeOrKeyword(search.getCatalog().getValue(), search.getKeyword().getValue());
-        List<Product> word = productRepository.findByNameOrContent(search.getWord(), search.getWord());
+        List<Product> typeAndKeyword = productRepository.findByTypeAndKeyword(search.getCatalog().getValue(), search.getKeyword().getValue());
+        List<Product> nameOrContent = productRepository.findByNameOrContent(search.getWord(), search.getWord());
+        List<Product> searchAndTypeOrKeyword = productRepository.findBySearchAndTypeOrKeyword(search.getWord(), search.getWord(), search.getCatalog().getValue(), search.getKeyword().getValue());
+        List<Product> typeOrKeyword = productRepository.findByTypeOrKeyword(search.getCatalog().getValue(), search.getKeyword().getValue());
 
         // search 의 catalog, keyword, word 값에 따른 상품 리스트
         List<Product> searchAndDropdown = productRepository.findBySearchAndDropdown(search.getWord(), search.getWord(), search.getCatalog().getValue(), search.getKeyword().getValue());
@@ -58,10 +61,16 @@ public class ProductService {
             if (search.getWord() == null || search.getWord().isBlank()) {
                 return all;
             }
-            return word;
+            return nameOrContent;
+        }
+        if (search.getKeyword().equals(Keyword.undefined) || search.getCatalog().equals(Catalog.undefined)){
+            if (search.getWord() == null || search.getWord().isBlank()) {
+                return typeOrKeyword;
+            }
+            return searchAndTypeOrKeyword;
         }
         if (search.getWord() == null || search.getWord().isBlank()) {
-            return dropDown;
+            return typeAndKeyword;
         }
         if (search.getKeyword().equals(Keyword.무직)){
             return basic;

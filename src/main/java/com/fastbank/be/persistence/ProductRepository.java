@@ -21,9 +21,13 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     /**
      * 상품 리스트 검색
      * */
-    // dropdown 상품 유형별 -> 예금, 적금, 대출
-    @Query(value = "select p from Product p where p.type like %:type%")
-    List<Product> findByType(@Param("type") String type);
+    // search && dropdown 상품 유형별 || 상품 키워드별
+    @Query(value = "select p from Product p where (p.name like %:name% or p.content like %:content%) and (p.type like %:type% or p.keyword like %:keyword%)")
+    List<Product> findBySearchAndTypeOrKeyword(@Param("name") String name, @Param("content") String content, @Param("type") String type, @Param("keyword") String keyword);
+
+    // dropdown 상품 유형별 || 상품 키워드별
+    @Query(value = "select p from Product p where p.type like %:type% or p.keyword like %:keyword%")
+    List<Product> findByTypeOrKeyword(@Param("type") String type, @Param("keyword") String keyword);
 
     // dropdwon 상품 키워드별 중 무직일 때 기본 상품 리스트만
     @Query(value = "select p from Product p where p.keyword='기본'")
@@ -33,9 +37,9 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query(value = "select p from Product p where p.name like %:name% or p.content like %:content%")
     List<Product> findByNameOrContent(@Param("name") String name, @Param("content") String content);
 
-    // dropdown 상품 유형별 + 상품 키워드별
+    // dropdown 상품 유형별 && 상품 키워드별
     @Query(value = "select p from Product p where p.type like %:type% and p.keyword like %:keyword%")
-    List<Product> findByTypeOrKeyword(@Param("type") String type, @Param("keyword") String keyword);
+    List<Product> findByTypeAndKeyword(@Param("type") String type, @Param("keyword") String keyword);
 
     // search + dropdown
     @Query(value = "select p from Product p where (p.name like %:name% or p.content like %:content%) and (p.type like %:type% and p.keyword like %:keyword%)")
@@ -43,6 +47,3 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
 
 }
-
-
-
