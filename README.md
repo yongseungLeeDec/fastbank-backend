@@ -47,9 +47,13 @@
 ### 인증/인가 기능
 - JSON Web Token(JWT)을 이용한 인가(authorization)
   - 로그인, 회원가입을 제외한 모든 클라이언트 요청은 유효한 토큰 문자열을 헤더에 포함하고 있어야 함.
+  - JWT 검증(validation)은 어플리케이션 서버의 인터셉터 단계에서 작동 (Spring Security 미사용)
+  - 주요 관여 클래스: `TokenProvider`, `JwtInterceptor`
 - 로그인(인증) 기능
+  - 주요 관여 클래스: `AuthController`, `AuthService`, `TokenProvider`, `MemberIdentityRepository`
 - 회원 가입 기능
   - 회원 가입 서식에 입력된 정보는 `javax.validation.constraints` API를 이용하여 검증
+  - 주요 관여 클래스: `MemberController`, `MemberService`, `MemberRepository`, `Encryptor`
 
 
 
@@ -68,6 +72,7 @@
 ### 장바구니 관리 기능
 - 회원의 장바구니 목록 게시 기능
 - 장바구니에 금융상품을 추가하고 삭제하는 기능
+- 주요 관여 클래스: `CartController`, `CartItemRepository`
 
 
 
