@@ -33,17 +33,18 @@
 
 ## API 명세
 
-| 관련 기능    | 요청 URL        | 메서드     | 요청 형식 | 응답 형식 |
-| :----------- | :------------ | :------------: | :------------ | :------------ |
-| 로그인 | /login | `POST` | { <br/> “email”:“<qwerty@kdtfb.com>”, <br /> “password”:“123123” <br/> } | { <br /> “accessToken”: "eyJiJ9.ezNn0.LVVQ", <br /> "name": "성이름" <br /> } |              
-| 회원가입 신청 | /signup | `POST` | { <br/> "email":"caniusethis@kdtfb.com", <br/> } | { <br/> "isAvailable":"true" / "false" <br/> } |              
-| 회원 ID 중복확인 | /signup/check | `POST` | { <br/> "name":“성이름”, <br/> "email":“success@kdtfb.com”, <br/> "password":“123abc”, <br/> "job":“학생”, <br/> "age": “20대” <br/> } | { <br/> "status":"200", <br/> "email":"success@kdtfb.com" <br/> } |              
-|    |     |       |                |                |              
-|    |     |       |                |                |              
-|    |     |       |                |                |              
-|장바구니 목록 조회    |/cart     |`GET`       |                |                |              
-|장바구니 상품 추가    |/cart     |`POST`       |                |                |              
-|장바구니 상품 삭제    |/cart/delete     |`POST`       |                |                |              
+| 관련 기능    | 요청 URL        | HTTP 메서드     | 
+| :----------- | :------------ | :------------ | 
+| 로그인 | /login | `POST` |         
+| 회원가입 신청 | /signup | `POST` |          
+| 회원 ID 중복확인 | /signup/check | `POST` |              
+|    |     |       |             
+|    |     |       |               
+|    |     |       |                    
+| 장바구니 목록 조회 | /cart | `GET` |             
+| 장바구니 상품 추가 | /cart | `POST` |   
+| 장바구니 상품 삭제 | /cart/delete | `POST` |            
+
 
 ** **
 
@@ -85,13 +86,13 @@
 ** **
 
 
-### 참여 인원 및 담당 역할
+## 참여 인원 및 담당 역할
 
-- 조혜진 (
+### 조혜진 (
   - 상품 검색 기능 구현
   - 맞춤형 상품 제시 기능 구현
   - 관심상품 관리 기능 구현
-- 이용승 (
+### 이용승 (https://github.com/yongseungLeeDec)
   - 인증/인가 기능 구현
   - 장바구니 관리 기능 구현
   - 서버 배포 및 프론트엔드 연동 테스트
