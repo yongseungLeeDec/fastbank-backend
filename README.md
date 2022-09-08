@@ -1,4 +1,4 @@
-## Team 칠전팔기: Project Fastbank 개요
+## :triangular_flag_on_post: Team 칠전팔기: Project Fastbank 개요
 
 ### 서비스 개요
 - Megabyte School K Digital Training 2기 (프론트엔드 및 백엔드 개발자 각 양성과정) 수강생의 협동 미니프로젝트
@@ -12,7 +12,7 @@
 ** **
 
 
-## 프로젝트에 사용한 도구
+## :hammer_and_pick: 프로젝트에 사용한 도구
 
 ### 개발 환경
 - 프로그램 작성 언어: Java 11
@@ -31,7 +31,7 @@
 ** **
 
 
-## 서비스 API 명세
+## :speech_balloon: 서비스 API 명세
 
 | 관련 기능    | 요청 URL        | HTTP 메서드     | 
 | :----------- | :------------ | :------------ | 
@@ -49,7 +49,7 @@
 ** **
 
 
-## 서비스에 구현된 기능
+## :bulb: 서비스에 구현된 기능
 
 ### 인증/인가 기능
 - JSON Web Token(JWT)을 이용한 인가(authorization)
@@ -86,7 +86,7 @@
 ** **
 
 
-## 프로젝트 참여자 (총 2명)
+## :slightly_smiling_face: 프로젝트 참여자 (총 2명)
 
 ### 조혜진 (https://github.com/Johyejin-119)
   - 상품 검색 기능 구현
