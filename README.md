@@ -33,11 +33,17 @@
 
 ## API 명세
 
-| 관련 기능    | 요청 URL        | HTTP 메서드     | 요청 데이터 형식 | 응답 데이터 형식 | 토큰 필요 여부 |  
-| :----------- | :------------: | :------------: | :------------: | :------------: | ------------:|
-| git status   |   git status   |    git status  |                |                |              |
-| git diff     |    git diff    |      git diff  |                |                |              |
-
+| 관련 기능    | 요청 URL        | 메서드     | 요청 형식 | 응답 형식 |
+| :----------- | :------------ | :------------: | :------------ | :------------ |
+| 로그인 | /login | `POST` | { <br/> “email”:“<qwerty@kdtfb.com>”, <br /> “password”:“123123” <br/> } | { <br /> “accessToken”: "eyJiJ9.ezNn0.LVVQ", <br /> "name": "성이름" <br /> } |              
+| 회원가입 신청 | /signup | `POST` | { <br/> "email":"caniusethis@kdtfb.com", <br/> } | { <br/> "isAvailable":"true" / "false" <br/> } |              
+| 회원 ID 중복확인 | /signup/check | `POST` | { <br/> "name":“성이름”, <br/> "email":“success@kdtfb.com”, <br/> "password":“123abc”, <br/> "job":“학생”, <br/> "age": “20대” <br/> } | { <br/> "status":"200", <br/> "email":"success@kdtfb.com" <br/> } |              
+|    |     |       |                |                |              
+|    |     |       |                |                |              
+|    |     |       |                |                |              
+|장바구니 목록 조회    |/cart     |`GET`       |                |                |              
+|장바구니 상품 추가    |/cart     |`POST`       |                |                |              
+|장바구니 상품 삭제    |/cart/delete     |`POST`       |                |                |              
 
 ** **
 
