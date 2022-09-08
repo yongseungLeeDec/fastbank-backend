@@ -1,4 +1,4 @@
-## Project Fastbank 개요
+## 팀 칠전팔기: Project Fastbank 개요
 
 ### 서비스 개요
 - Megabyte School K Digital Training 2기 (프론트엔드 및 백엔드 개발자 각 양성과정) 수강생의 협동 미니프로젝트
@@ -86,7 +86,7 @@
 ** **
 
 
-## 프로젝트 참여자
+## 프로젝트 참여자 (총 2명)
 
 ### 조혜진 (https://github.com/Johyejin-119)
   - 상품 검색 기능 구현
