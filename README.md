@@ -38,9 +38,9 @@
 | 로그인 | /login | `POST` |         
 | 회원가입 신청 | /signup | `POST` |          
 | 회원 ID 중복확인 | /signup/check | `POST` |              
-|    |     |       |             
-|    |     |       |               
-|    |     |       |                    
+| 맞춤형 상품 목록 | /product-custom | `GET` |             
+| 전체 상품 목록 | /product | `GET` |               
+| 상품 검색 | /product-search | `GET` |                    
 | 장바구니 목록 조회 | /cart | `GET` |             
 | 장바구니 상품 추가 | /cart | `POST` |   
 | 장바구니 상품 삭제 | /cart/delete | `POST` |            
@@ -63,18 +63,27 @@
   - 주요 관여 클래스: `MemberController`, `MemberService`, `MemberRepository`, `Encryptor`
 
 
-
 ### 상품 검색 기능
 - 전체 상품 목록 게시 기능
 - 금융상품 유형별/키워드별/검색어별 검색 기능
+- 유형과 키워드의 default: `undefiend`
+- 검색어가 `blank()`일 때
+  1. 유형과 키워드에 맞는 상품 목록을 출력
+  2. 유형과 키워드가 undeifend 라면 전체 상품 목록 게시
+- 주요 관여 클래스: `ProductService`, `ProductController`, `ProductRepository`
+
 
 ### 맞춤형 상품 제시 기능
-- 
-- 
+- 회원 가입 시 입력한 회원의 나이 및 직업에 맞게끔 상품 목록 게시
+- ex. 나이가 30대, 직업이 직장인인 경우: 30대 또는 직장인 또는 기본 상품 목록을 맞춤형 상품 페이지에서 제공
+- 주요 관여 클래스: `ProductService`, `ProductController`, `ProductRepository`
+
 
 ### 관심상품 관리 기능
-- 
-- 
+- 회원의 관심상품 목록 게시 기능
+- 관심 상품 목록에 금융상품을 추가하고 해제하는 기능
+- 주요 관여 클래스: `WishListController`, `WishListRepository`
+
 
 ### 장바구니 관리 기능
 - 회원의 장바구니 목록 게시 기능
