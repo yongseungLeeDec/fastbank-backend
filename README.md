@@ -40,7 +40,10 @@
 | 회원 ID 중복확인 | /signup/check | `POST` |              
 | 맞춤형 상품 목록 | /product-custom | `GET` |             
 | 전체 상품 목록 | /product | `GET` |               
-| 상품 검색 | /product-search | `GET` |                    
+| 상품 검색 | /product-search | `GET` |       
+| 관심상품 목록 조회 | /wishList | `GET` |             
+| 관심상품 상품 추가 | /wishList | `POST` |   
+| 관심상품 상품 삭제 | /wishList/delete | `POST` |  
 | 장바구니 목록 조회 | /cart | `GET` |             
 | 장바구니 상품 추가 | /cart | `POST` |   
 | 장바구니 상품 삭제 | /cart/delete | `POST` |            
